@@ -1,0 +1,46 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background: #e9ecef;
+    padding: 2rem;
+    border-radius: 0.3rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: bold;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        margin-top: 10px;
+    }
+}

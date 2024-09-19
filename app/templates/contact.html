@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - My Flask App{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form method="POST" action="{{ url_for('main.contact') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.message.label(class="form-label") }}
+                {{ form.message(class="form-control", rows="4") }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if contact_submissions %}
+            <h3 class="mt-4">Contact Submissions</h3>
+            <table class="table table-striped mt-2">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Submitted At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in contact_submissions %}
+                        <tr>
+                            <td>{{ submission.name }}</td>
+                            <td>{{ submission.email }}</td>
+                            <td>{{ submission.message }}</td>
+                            <td>{{ submission.submitted_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

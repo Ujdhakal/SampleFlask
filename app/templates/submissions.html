@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Submissions - My Flask App{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>Contact Submissions</h2>
+        {% if contact_submissions %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Submitted At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in contact_submissions %}
+                        <tr>
+                            <td>{{ submission.name }}</td>
+                            <td>{{ submission.email }}</td>
+                            <td>{{ submission.message }}</td>
+                            <td>{{ submission.submitted_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No submissions yet.</p>
+        {% endif %}
+    </div>
+{% endblock %}
